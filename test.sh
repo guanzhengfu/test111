@@ -19,7 +19,7 @@ jar_name=`ls |grep test111-|grep -v original`
 #需要注意的是，初次构建时并没有对应的pid，所以需要判断一下是否存在该文件
 #获取运行编译好的进程ID，便于我们在重新部署项目的时候先杀掉以前的进程
 if [ -f "/home/wwwroot/jenkins/test111.pid" ];then
- pid=$(cat /home/wwwroot/jenkins/test3.pid)
+ pid=$(cat /home/wwwroot/jenkins/test111.pid)
  #杀掉以前可能启动的项目进程
  kill -9 ${pid}
 fi
