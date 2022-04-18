@@ -14,6 +14,7 @@ pipeline {
         )
     }
     stages {
+        sh 'BUILD_ID=dontKillMe'
         stage('Checkout') {
             steps {
                 checkout([
