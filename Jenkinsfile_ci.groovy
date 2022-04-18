@@ -36,9 +36,7 @@ pipeline {
 
             steps {
                 sh 'chmod 777 test.sh'
-                sh 'BUILD_ID=DONTKILLME'
                 sh './test.sh'
-                sh 'echo $BUILD_ID'
                 echo 'qa'
             }
         }
