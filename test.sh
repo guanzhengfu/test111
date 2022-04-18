@@ -1,5 +1,4 @@
 #!/bin/bash
-java -Dhudson.util.ProcessTree.disable=true -jar jenkins.war
 echo '开始maven 构建服务'
 #export BUILD_ID=dontKillMe这一句很重要，这样指定了，项目启动之后才不会被Jenkins杀掉。
 echo 'export BUILD_ID=dontKillMe这一句很重要，这样指定了，项目启动之后才不会被Jenkins杀掉'
