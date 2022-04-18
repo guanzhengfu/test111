@@ -1,8 +1,6 @@
 #!/bin/bash
 echo '开始maven 构建服务'
 #export BUILD_ID=dontKillMe这一句很重要，这样指定了，项目启动之后才不会被Jenkins杀掉。
-OLD_BUILD_ID=$BUILD_ID
-echo $OLD_BUILD_ID
 BUILD_ID=DONTKILLME
 echo 'export BUILD_ID=dontKillMe这一句很重要，这样指定了，项目启动之后才不会被Jenkins杀掉'
 echo 'mvn clean install begin'
@@ -38,9 +36,8 @@ cd  ${www_path}
 #启动jar，指定SpringBoot的profiles为beta,后台启动
 #java -jar -Dspring.profiles.active=beta ${jar_name} &
 echo ${jar_name}
-java -jar test111-0.0.1-SNAPSHOT.jar &
+NEW_JAR='Test-0.0.1-SNAPSHOT.jar'
+BUILD_ID=$NEW_JAR java -jar test111-0.0.1-SNAPSHOT.jar &
 #将进程ID存入到ufind-web.pid文件中
 echo $! > /home/wwwroot/jenkins/test111.pid
-BUILD_ID=123
-echo $BUILD_ID
 echo  'over'
