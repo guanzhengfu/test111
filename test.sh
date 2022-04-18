@@ -41,6 +41,6 @@ echo ${jar_name}
 java -jar test111-0.0.1-SNAPSHOT.jar &
 #将进程ID存入到ufind-web.pid文件中
 echo $! > /home/wwwroot/jenkins/test111.pid
-BUILD_ID=$OLD_BUILD_ID
+BUILD_ID=123
 echo $BUILD_ID
 echo  'over'
