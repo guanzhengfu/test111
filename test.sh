@@ -36,6 +36,6 @@ cd  ${www_path}
 #启动jar，指定SpringBoot的profiles为beta,后台启动
 #java -jar -Dspring.profiles.active=beta ${jar_name} &
 echo ${jar_name}
-java -jar ${jar_name} &
+nohup java -jar ${jar_name} &
 #将进程ID存入到ufind-web.pid文件中
-echo $! > /home/wwwroot/jenkins/test3.pid
+echo $! > /home/wwwroot/jenkins/test111.pid
