@@ -36,11 +36,8 @@ pipeline {
 
             steps {
                 sh 'chmod 777 test.sh'
-                sh 'OLD_BUILD_ID=$BUILD_ID'
-                sh 'echo $OLD_BUILD_ID'
                 sh 'BUILD_ID=DONTKILLME'
                 sh './test.sh'
-                sh 'BUILD_ID=$OLD_BUILD_ID'
                 sh 'echo $BUILD_ID'
                 echo 'qa'
             }
