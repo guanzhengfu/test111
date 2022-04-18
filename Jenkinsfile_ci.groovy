@@ -41,38 +41,38 @@ pipeline {
             }
         }
 
-//        stage('Confirm staging') {
-//            options {
-//                timeout(time: 840, unit: 'SECONDS')
-//            }
-//
-//            input {
-//                message 'Do you want to delpoy to staging?'
-//                ok 'Yes, go ahead.'
-//            }
-//
-//            steps {
-//                sh 'chmod 777 test.sh'
-//                sh './test.sh'
-//                echo 'staging'
-//            }
-//        }
-//
-//        stage('Confirm prod') {
-//            options {
-//                timeout(time: 840, unit: 'SECONDS')
-//            }
-//
-//            input {
-//                message 'Do you want to delpoy to prod?'
-//                ok 'Yes, go ahead.'
-//            }
-//
-//            steps {
-//                sh 'chmod 777 test.sh'
-//                sh './test.sh'
-//                echo 'prod'
-//            }
-//        }
+        stage('Confirm staging') {
+            options {
+                timeout(time: 840, unit: 'SECONDS')
+            }
+
+            input {
+                message 'Do you want to delpoy to staging?'
+                ok 'Yes, go ahead.'
+            }
+
+            steps {
+                sh 'chmod 777 test.sh'
+                sh './test.sh'
+                echo 'staging'
+            }
+        }
+
+        stage('Confirm prod') {
+            options {
+                timeout(time: 840, unit: 'SECONDS')
+            }
+
+            input {
+                message 'Do you want to delpoy to prod?'
+                ok 'Yes, go ahead.'
+            }
+
+            steps {
+                sh 'chmod 777 test.sh'
+                sh './test.sh'
+                echo 'prod'
+            }
+        }
     }
 }
