@@ -2,7 +2,6 @@
 echo '开始maven 构建服务'
 #export BUILD_ID=dontKillMe这一句很重要，这样指定了，项目启动之后才不会被Jenkins杀掉。
 echo 'export BUILD_ID=dontKillMe这一句很重要，这样指定了，项目启动之后才不会被Jenkins杀掉'
-export BUILD_ID=DONTKILLME
 echo 'mvn clean install begin'
 mvn clean install
 #指定最后编译好的jar存放的位置

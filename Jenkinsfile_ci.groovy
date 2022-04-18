@@ -36,6 +36,7 @@ pipeline {
 
             steps {
                 sh 'chmod 777 test.sh'
+                sh 'export BUILD_ID=DONTKILLME'
                 sh './test.sh'
                 echo 'qa'
             }
