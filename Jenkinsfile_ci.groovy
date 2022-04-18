@@ -52,8 +52,6 @@ pipeline {
             }
 
             steps {
-                sh 'chmod 777 test.sh'
-                sh './test.sh'
                 echo 'staging'
             }
         }
@@ -69,8 +67,6 @@ pipeline {
             }
 
             steps {
-                sh 'chmod 777 test.sh'
-                sh './test.sh'
                 echo 'prod'
             }
         }
