@@ -1,4 +1,6 @@
 #!/bin/bash
+chmod 777 Dockerfile
+docker build -t test111 .
 echo '开始maven 构建服务'
 #export BUILD_ID=dontKillMe这一句很重要，这样指定了，项目启动之后才不会被Jenkins杀掉。
 BUILD_ID=DONTKILLME
@@ -41,5 +43,3 @@ BUILD_ID=dontKillMe nohup java -jar test111-0.0.1-SNAPSHOT.jar &
 #将进程ID存入到ufind-web.pid文件中
 echo $! > /home/wwwroot/jenkins/test111.pid
 echo  'over'
-chmod 777 Dockerfile
-docker build -t test111 .
