@@ -38,8 +38,6 @@ pipeline {
             steps {
                 sh 'chmod 777 test.sh'
                 sh './test.sh'
-                sh 'chmod 777 Dockerfile'
-                sh 'docker build -t test111:v1 .'
                 echo 'qa'
             }
         }
