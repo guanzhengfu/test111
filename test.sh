@@ -43,7 +43,7 @@ cd  ${www_path}
 #java -jar -Dspring.profiles.active=beta ${jar_name} &
 echo ${jar_name}
 NEW_JAR='Test-0.0.1-SNAPSHOT.jar'
-BUILD_ID=dontKillMe nohup java -jar test111-0.0.1-SNAPSHOT.jar &
+#BUILD_ID=dontKillMe nohup java -jar test111-0.0.1-SNAPSHOT.jar &
 #将进程ID存入到ufind-web.pid文件中
 echo $! > /home/wwwroot/jenkins/test111.pid
 echo  'over'
