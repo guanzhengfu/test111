@@ -53,16 +53,6 @@
       <version>3.1.0</version>
     </dependency>
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
       <optional>true</optional>
@@ -79,7 +69,7 @@
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>8.0.20</version>
+      <version>8.0.16</version>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -97,6 +87,11 @@
 <!--      <artifactId>jackson-databind</artifactId>-->
 <!--      <version>2.12.2</version>-->
 <!--    </dependency>-->
+    <dependency>
+      <groupId>org.liquibase</groupId>
+      <artifactId>liquibase-core</artifactId>
+      <version>4.9.1</version>
+    </dependency>
   </dependencies>
 
 
@@ -117,6 +112,22 @@
               <artifactId>lombok</artifactId>
             </exclude>
           </excludes>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.liquibase</groupId>
+        <artifactId>liquibase-maven-plugin</artifactId>
+        <version>3.5.1</version>
+        <configuration>
+          <!--properties文件路径，该文件记录了数据库连接信息等-->
+          <propertyFile>src/main/resources/liquibase.properties</propertyFile>
+          <propertyFileWillOverride>true</propertyFileWillOverride>
+          <!--生成文件的路径-->
+          <outputChangeLogFile>src/main/resources/liquibase/changelog_dev.xml</outputChangeLogFile>
+          <!-- <driver>com.mysql.jdbc.Driver</driver>
+          <url>jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=utf-8</url>
+          <username>root</username>
+          <password>egova</password>-->
         </configuration>
       </plugin>
     </plugins>
