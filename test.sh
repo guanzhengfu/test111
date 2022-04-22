@@ -1,9 +1,6 @@
 #!/bin/bash
 groups
 whoami
-docker stop test111
-docker rm test111
-docker run --name test111 -d -p 8001:8001 test111:laster
 echo '开始maven 构建服务'
 #export BUILD_ID=dontKillMe这一句很重要，这样指定了，项目启动之后才不会被Jenkins杀掉。
 BUILD_ID=DONTKILLME
@@ -11,6 +8,9 @@ echo 'export BUILD_ID=dontKillMe这一句很重要，这样指定了，项目启
 echo 'mvn clean install begin'
 mvn clean install
 docker build -t test111:laster .
+docker stop test111
+docker rm test111
+docker run --name test111 -d -p 8001:8001 test111:laster
 #指定最后编译好的jar存放的位置
 echo '指定最后编译好的jar存放的位置'
 www_path=/home/wwwroot/jenkins
