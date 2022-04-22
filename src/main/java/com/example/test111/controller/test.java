@@ -8,6 +8,6 @@ public class test {
 
   @GetMapping("/test")
   public String test(){
-    return "test";
+    return "new test";
   }
 }
