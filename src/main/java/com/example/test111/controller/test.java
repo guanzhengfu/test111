@@ -52,4 +52,9 @@ public class test {
     }
    return "test";
   }
+
+  @GetMapping("/test1/2")
+  public String test1() {
+    return "test1";
+  }
 }

@@ -3,6 +3,7 @@ package com.example.test111.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -57,7 +58,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         .and().logout().logoutUrl("/logout").logoutSuccessUrl("/")
         .and().authorizeRequests().antMatchers("/oauth/**", "/login/**","/test/**", "/logout/**").permitAll()
         // 其余所有请求全部需要鉴权认证
-        .anyRequest().authenticated()
+        .anyRequest().permitAll()
         // 关闭跨域保护;
         .and().csrf().disable();
   }
