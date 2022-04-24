@@ -1,5 +1,7 @@
 package com.example.test111.config;
 
+import com.example.test111.component.AuthFilterCustom;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -10,6 +12,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 /**
  * <pre>
@@ -26,6 +30,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 @Order(1)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+
+  @Autowired
+  private AuthFilterCustom authFilterCustom;
 
   @Bean
   @Override
@@ -50,17 +57,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
   @Override
   protected void configure(HttpSecurity http) throws Exception {
-    http   // 配置登录页并允许访问
-        .formLogin().permitAll()
-        // 配置Basic登录
-        //.and().httpBasic()
-        // 配置登出页面
-        .and().logout().logoutUrl("/logout").logoutSuccessUrl("/")
-        .and().authorizeRequests().antMatchers("/oauth/**", "/login/**","/test/**", "/logout/**").permitAll()
-        // 其余所有请求全部需要鉴权认证
-        .anyRequest().permitAll()
-        // 关闭跨域保护;
-        .and().csrf().disable();
+    http.csrf()
+        .disable()
+        .authorizeRequests()
+        .mvcMatchers(HttpMethod.GET, "/test1/2").hasRole("USER")
+        .antMatchers("/**").authenticated()//所有的请求必须认证通过
+        .and()
+        .addFilterAfter(authFilterCustom, BasicAuthenticationFilter.class)//添加过滤器
+        .sessionManagement()
+        .sessionCreationPolicy(SessionCreationPolicy.STATELESS);//禁用session
   }
 
 }
