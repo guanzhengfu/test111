@@ -47,6 +47,7 @@ public class test {
 
   @GetMapping("/test1/2")
   public String test1() {
+//    throw new RuntimeException();
     return "test1";
   }
 }
