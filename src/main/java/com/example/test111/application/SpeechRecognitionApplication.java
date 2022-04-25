@@ -74,45 +74,6 @@
 //    LANGUAGE_CODE_MAP.put("en-US", "English");
 //  }
 //
-//  public ScoreResultResponse speechRecognizeAndScore(MultipartFile file, String languageCode,
-//      String originalText, AudioEncoding audioEncoding, int sampleRateHertz)
-//      throws IOException {
-//    SpeechRecognizeResponse speechRecognizeResponse = speechRecognize(file, languageCode,
-//        audioEncoding, sampleRateHertz);
-//    return diffAndScore(speechRecognizeResponse.getTranscript(), originalText,
-//        speechRecognizeResponse.getLanguage(), speechRecognizeResponse.getConfidence());
-//  }
-//
-//  private SpeechRecognizeResponse speechRecognize(MultipartFile file, String languageCode,
-//      AudioEncoding audioEncoding, int sampleRateHertz)
-//      throws IOException {
-//    RecognitionConfig config = RecognitionConfig.newBuilder()
-//        .setEncoding(audioEncoding)
-//        .setSampleRateHertz(sampleRateHertz)
-//        .setLanguageCode(languageCode)
-//        .build();
-//    RecognitionAudio audio = RecognitionAudio.newBuilder()
-//        .setContent(ByteString.copyFrom(file.getBytes()))
-//        .build();
-//    List<SpeechRecognitionResult> results = speechClient.recognize(config, audio).getResultsList();
-//    StringBuilder transcript = new StringBuilder();
-//    float confidence = 0;
-//    for (SpeechRecognitionResult result : results) {
-//      SpeechRecognitionAlternative alternative = result.getAlternativesList().get(0);
-//      confidence += alternative.getConfidence();
-//      transcript.append(alternative.getTranscript());
-//    }
-//    int resultSize = results.size();
-//    if (resultSize > 0) {
-//      confidence /= resultSize;
-//    }
-//    return SpeechRecognizeResponse.builder()
-//        .confidence(confidence)
-//        .transcript(transcript.toString())
-//        .language(LANGUAGE_CODE_MAP.get(languageCode))
-//        .build();
-//  }
-//
 //  public ScoreResultResponse diffAndScore(String inputText, String originalText, String language,
 //      float confidence)
 //      throws IOException {
