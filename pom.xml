@@ -119,39 +119,34 @@
       <artifactId>spring-security-jwt</artifactId>
       <version>1.1.0.RELEASE</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/io.springfox/springfox-spi -->
-    <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
+    <!-- swagger-ui -->
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger-ui</artifactId>
+      <version>2.9.2</version>
+    </dependency>
+    <!-- swagger2 -->
     <dependency>
       <groupId>io.springfox</groupId>
       <artifactId>springfox-swagger2</artifactId>
-      <version>3.0.0</version>
-      <exclusions>
-        <exclusion>
-          <groupId>org.springframework.plugin</groupId>
-          <artifactId>spring-plugin-core</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.springframework.plugin</groupId>
-          <artifactId>spring-plugin-metadata</artifactId>
-        </exclusion>
-      </exclusions>
+      <version>2.9.2</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/io.springfox/springfox-boot-starter -->
+    <!-- 引入swagger-bootstrap-ui包 -->
     <dependency>
-      <groupId>io.springfox</groupId>
-      <artifactId>springfox-boot-starter</artifactId>
-      <version>3.0.0</version>
+      <groupId>com.github.xiaoymin</groupId>
+      <artifactId>swagger-bootstrap-ui</artifactId>
+      <version>1.9.3</version>
+    </dependency>
+    <!-- 1.5.21版本解决 实体类使用@ApiModelProperty时，example属性没有赋值导致 java.lang.NumberFormatException-->
+    <dependency>
+      <groupId>io.swagger</groupId>
+      <artifactId>swagger-annotations</artifactId>
+      <version>1.5.21</version>
     </dependency>
     <dependency>
-      <groupId>org.springframework.plugin</groupId>
-      <artifactId>spring-plugin-core</artifactId>
-      <version>2.0.0.RELEASE</version>
-    </dependency>
-    <!-- https://mvnrepository.com/artifact/org.springframework.plugin/spring-plugin-metadata -->
-    <dependency>
-      <groupId>org.springframework.plugin</groupId>
-      <artifactId>spring-plugin-metadata</artifactId>
-      <version>2.0.0.RELEASE</version>
+      <groupId>io.swagger</groupId>
+      <artifactId>swagger-models</artifactId>
+      <version>1.5.21</version>
     </dependency>
   </dependencies>
 

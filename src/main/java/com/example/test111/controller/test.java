@@ -6,6 +6,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import java.nio.charset.Charset;
 import java.util.Random;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@Api
 public class test {
 
   @Autowired

@@ -52,6 +52,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     //解决静态资源被拦截的问题
     web.ignoring().antMatchers("/asserts/**");
     web.ignoring().antMatchers("/favicon.ico");
+    web.ignoring().antMatchers("/swagger/swagger-ui.html");
   }
 
   @Override
