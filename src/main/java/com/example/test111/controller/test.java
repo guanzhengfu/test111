@@ -6,6 +6,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
+import io.swagger.annotations.ApiOperation;
 import java.nio.charset.Charset;
 import java.util.Random;
 import org.quartz.SchedulerException;
@@ -22,6 +23,7 @@ public class test {
   ProductScheduledPublishApplication productScheduledPublishApplication;
 
   @PostMapping("/{time}/scheduled-publishing")
+  @ApiOperation("scheduled-publishing")
   public void scheduledPublish(@PathVariable("time") Long time)
       throws SchedulerException, JsonProcessingException {
     ScheduledPublishRequest request = new ScheduledPublishRequest();
@@ -32,6 +34,7 @@ public class test {
   }
 
   @GetMapping("/test/{token}")
+  @ApiOperation("get username by token")
   public String test(@PathVariable(value = "token") String token) {
     Claims body = null;
     //获取username,然后
@@ -46,6 +49,7 @@ public class test {
   }
 
   @GetMapping("/test1/2")
+  @ApiOperation("Get test result.")
   public String test1() {
 //    throw new RuntimeException();
     return "test1";

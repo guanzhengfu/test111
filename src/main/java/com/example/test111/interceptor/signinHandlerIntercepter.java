@@ -11,9 +11,9 @@ public class signinHandlerIntercepter implements HandlerInterceptor {
     //获取token，从这个拦截器判断权限以及单点登录
     String Authname =request.getHeader("Authorization");
     if(Authname == null){
-      request.getRequestDispatcher("/oauth/token").forward(request, response);
+//      request.getRequestDispatcher("/oauth/token").forward(request, response);
       System.out.println("过滤器没有放行");
-      return false;
+      return true;
     }
     else {
       System.out.println("过滤器放行了");
