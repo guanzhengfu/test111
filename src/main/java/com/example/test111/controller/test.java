@@ -1,6 +1,7 @@
 package com.example.test111.controller;
 
 import com.example.test111.application.ProductScheduledPublishApplication;
+import com.example.test111.bean.ErrorResult;
 import com.example.test111.request.ScheduledPublishRequest;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import io.jsonwebtoken.Claims;
@@ -10,11 +11,13 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import java.nio.charset.Charset;
 import java.util.Random;
+import javax.validation.Valid;
 import org.quartz.SchedulerException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -37,7 +40,8 @@ public class test {
 
   @GetMapping("/test/{token}")
   @ApiOperation("get username by token")
-  public String test(@PathVariable(value = "token") String token) {
+  public String test(@PathVariable(value = "token") String token,
+      @Valid @RequestBody ErrorResult errorResult) {
     Claims body = null;
     //获取username,然后
     try {
@@ -47,12 +51,12 @@ public class test {
           .getBody();
     } catch (ExpiredJwtException e) {
     }
-   return "test";
+    return "test";
   }
 
   @GetMapping("/test1/2")
   @ApiOperation("Get test result.")
-  public String test1() {
+  public String test1(@RequestBody ErrorResult errorResult) {
 //    throw new RuntimeException();
     return "test1";
   }
